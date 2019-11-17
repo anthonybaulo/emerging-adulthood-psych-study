@@ -1,11 +1,6 @@
 # Emerging Adulthood Measured at Multiple Institutions 2 (EAMMI2)
 This project explores a psychological survey of young adults using unsupervised learning techniques. The survey has many sections, covering the attitudes, behaviors, and beliefs surrounding adulthood. 
 
-*Please excuse this readme in progress.* <br>
-The walkthrough of this project can be found in `main/` <br>
-* [EAMMI_1_processing.ipynb](EAMMI_1_processing.ipynb) <br>
-* [EAMMI_2_final.ipynb](EAMMI_2_final.ipynb)
-
 <a name="top"></a>
 # Table of Contents
 [Hypotheses](#hyp)<br>
@@ -141,19 +136,19 @@ The young adults were binned by their cumulative SWB scores (low, neutral, high)
 ### Plot distributions of SWB and held-out demographics
 
 <p align="center">
-  <img src="images/swb_count_dist.png" width="70%"/>
+  <img src="images/swb_count_dist.png" width="90%"/>
 </p>
 
 <p align="center">
-  <img src="images/swb_sex_dist.png" width="70%"/>
+  <img src="images/swb_sex_dist.png" width="90%"/>
 </p>
 
 <p align="center">
-  <img src="images/swb_age_dist.png" width="70%"/>
+  <img src="images/swb_age_dist.png" width="90%"/>
 </p>
 
 <p align="center">
-  <img src="images/swb_edu_dist.png" width="70%"/>
+  <img src="images/swb_edu_dist.png"/>
 </p>
 
 <a name="conclusion"></a>
