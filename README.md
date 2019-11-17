@@ -1,5 +1,5 @@
 # Emerging Adulthood Measured at Multiple Institutions 2 (EAMMI2)
-Unsupervised learning on a psychological survey
+This project explores a psychological survey of young adults using unsupervised learning techniques. The survey has many sections, covering the attitudes, behaviors, and beliefs surrounding adulthood. 
 
 *Please excuse this readme in progress.* <br>
 The walkthrough of this project can be found in `main/` <br>
@@ -8,13 +8,31 @@ The walkthrough of this project can be found in `main/` <br>
 
 <a name="top"></a>
 # Table of Contents
-[Data](#data)<br>
+[Hypotheses](#hyp)<br>
 [Technology](#tech)<br>
-[Results](#results)<br>
+[Data](#data)<br>
+[Preprocessing](#preprocessing)<br>
 [Conclusion](#conclusion)<br>
 
 ---
 ---
+<a name="hyp"></a>
+## Hypotheses
+1. The features (survey questions) will reduce to an interpretable set of topics.
+2. Holding out the pre-defined "Subjective Well-being" section, the data will still cluster meaningfully around that topic.
+
+<a name="tech"></a>
+## Technology
+This project leveraged the Python Data Science stack:
+* ScitKit Learn
+* Pandas
+* Numpy
+* Matplotlib
+* Jupyter
+
+<p align="center">
+  <img src="images/tech.png"/>
+</p>
 
 <a name="data"></a>
 ## Data
@@ -25,7 +43,7 @@ The EAMMI2 is a large scale collaborative project with 32 primary contributors a
 ##### Citation
 Grahe, J. E., Faas, C., Chalk, H. M., Skulborstad, H. M., Barlett, C., Peer, J. W., … Reifman, A. (2019, February 21). Emerging Adulthood Measured at Multiple Institutions 2: The Next Generation (EAMMi2). https://doi.org/10.17605/OSF.IO/TE54B 
 
-##### In summary
+### In summary
 This was a survey given primarily to young adults ages 18-25 regarding their attitudes, behaviors, and beliefs related to Emerging Adulthood. It took about 30 minutes, on average, to complete, and contained around 200 questions, spanning categories such as:
 * Markers of Adulthood
 * Idea
@@ -46,7 +64,8 @@ Example of Subjective Well-being questions:
   <img src="images/swb_example.png" width="80%"/>
 </p>
 
-### Cleaning
+<a name="preprocessing"></a>
+## Preprocessing
 [These cleaning steps](https://docs.google.com/document/d/17Azziyn_q-eKN_BcJ1JdsiU-MNsAH3NBXK6WmSovfPk/edit) were done by the collaborators, which include dropping observations that met the following conditions:
 * < 10 minutes to complete
 * Completed < 80%
@@ -64,5 +83,5 @@ My preprocessing can be found in [EAMMI_1_processing.ipynb](EAMMI_1_processing.i
 Here is a quick snapshot of the demographics of the cleaned dataset:
 
 <p align="center">
-  <img src="images/demo_dist_full_df.png" width="80%"/>
+  <img src="images/demo_dist_full_df.png" width="100%"/>
 </p>
