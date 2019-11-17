@@ -92,7 +92,7 @@ Here is a quick snapshot of the demographics of the cleaned dataset:
 ## Execution
 You can find these steps in [main/EAMMI_2_final.ipynb](EAMMI_2_final.ipynb), which includes docstrings and comments/explanations.
 
-#### Use [Non-negative Matrix Factorization](https://mlexplained.com/2017/12/28/a-practical-introduction-to-nmf-nonnegative-matrix-factorization/) for topic extraction.
+### Use [Non-negative Matrix Factorization](https://mlexplained.com/2017/12/28/a-practical-introduction-to-nmf-nonnegative-matrix-factorization/) for topic extraction.
 I found that the reducing the features to seven topics maintained interpretability. Below are the seven topics (the labels are my interpretation) along with a few survey questions associate with each topic. A more comprehensive list of questions can be found in the notebook.
 
 1. Self-worth / Confidence
@@ -124,17 +124,37 @@ I found that the reducing the features to seven topics maintained interpretabili
     2. I feel that I am unable to control the important things in my life.
     3. Is this period of your life a time of feeling stressed out?
 
-#### Use [Hierarchical Clustering](https://youtu.be/vg1w5ZUF5lA?t=453) on reduced feature set
+### Use [Hierarchical Clustering](https://youtu.be/vg1w5ZUF5lA?t=453) on reduced feature set
 Using Ward's linkage method to minimize within-cluster variance
 
 <p align="center">
   <img src="images/dendo_7_topics.png"/>
 </p>
 
-#### Use [Chi-squared test](https://stattrek.com/chi-square-test/independence.aspx) to test independence of the clusters with regards to the held out "Subjective Well-being" questions.
+### Use [Chi-squared test](https://stattrek.com/chi-square-test/independence.aspx) to test independence of the clusters with regards to the held out "Subjective Well-being" questions.
 The young adults were binned by their cumulative SWB scores (low, neutral, high), and the distribution of each cluster was tested against that of every other cluster. The p-value is the probability of observing these distributions (or more extreme) given that the clusters are not independent. Therefore, the lower p-values support the claim of independence.
 
 <p align="center">
-  <img src="images/chi2_pvals.png" width="60%"/>
+  <img src="images/chi2_pvals.png" width="70%"/>
 </p>
 
+### Plot distributions of SWB and held-out demographics
+
+<p align="center">
+  <img src="images/swb_count_dist.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="images/swb_sex_dist.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="images/swb_age_dist.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="images/swb_edu_dist.png" width="70%"/>
+</p>
+
+<a name="conclusion"></a>
+## Conclusion
