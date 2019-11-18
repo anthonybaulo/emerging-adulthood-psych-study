@@ -171,3 +171,18 @@ Cluster 3 shows a different education distribution.
 
 <a name="conclusion"></a>
 ## Conclusion
+1. The features reduced to an interpretable set of topics.
+2. The data clustered meaningfully around the held-out "Subjective Well-being" questions.
+3. Upon first glance, it seems promising that the clusters contain different demographic distributions.
+
+## Next Steps
+* Dig into the differences of the clusters and confirm with statistical tests
+* Include open-ended text sections
+    * NLP / Sentiment Analysis
+* Include the "duration" feature, which measures the time spent answering each section
+* Use supervised learning to predict classification labels
+    * e.g. Subjective Well-being - low, neutral, high
+* Measure relationship between family/upbringing and belonging/support
+
+---
+---
