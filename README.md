@@ -35,13 +35,13 @@ This project leveraged the Python Data Science stack:
 ## Data
 The data comes from [Open Science Framework](https://osf.io/te54b/), a free and open platform to support research and enable collaboration.
 
-The EAMMI2 is a large-scale collaborative project with 32 primary contributors, with the initial data collection ending in December 2016. 90% of the entries come from the US, with 10% coming from England, Greece, and Grenada.
+The EAMMI2 is a large-scale collaborative project with 32 primary contributors. The initial data collection ended in December 2016. 90% of the entries come from the US, with 10% coming from England, Greece, and Grenada.
 
-##### Citation
-Grahe, J. E., Faas, C., Chalk, H. M., Skulborstad, H. M., Barlett, C., Peer, J. W., … Reifman, A. (2019, February 21). Emerging Adulthood Measured at Multiple Institutions 2: The Next Generation (EAMMi2). https://doi.org/10.17605/OSF.IO/TE54B 
+##### *Citation*
+*Grahe, J. E., Faas, C., Chalk, H. M., Skulborstad, H. M., Barlett, C., Peer, J. W., … Reifman, A. (2019, February 21). Emerging Adulthood Measured at Multiple Institutions 2: The Next Generation (EAMMi2). https://doi.org/10.17605/OSF.IO/TE54B*
 
 ### In summary
-This was a survey given primarily to young adults ages 18-25 regarding their attitudes, behaviors, and beliefs related to Emerging Adulthood. On average, it took about 30 minutes to complete, and contained around 200 questions, spanning categories such as:
+This was a survey given primarily to young adults ages 18-25 regarding their attitudes, behaviors, and beliefs related to Emerging Adulthood. On average it took about 30 minutes to complete, and contained around 200 questions spanning categories such as:
 * Markers of Adulthood
 * Idea
 * Subjective Well-being
@@ -69,7 +69,7 @@ Example of Subjective Well-being questions:
 * Missed the "attention" prompts
 * High-bias responders
 
-My preprocessing can be found in [main/EAMMI_1_processing.ipynb](EAMMI_1_processing.ipynb), which included:
+My preprocessing can be found in [main/EAMMI_1_processing.ipynb](main/EAMMI_1_processing.ipynb), which included:
 * Renaming columns for readability
 * Dropping open-ended questions
 * Remapping answers to retain ordinality 
@@ -85,11 +85,11 @@ Here is a quick snapshot of the demographics of the cleaned dataset:
 
 <a name="execution"></a>
 ## Execution
-You can find these steps in [main/EAMMI_2_final.ipynb](EAMMI_2_final.ipynb), which includes docstrings and comments/explanations.<br>
+You can find these steps in [main/EAMMI_2_final.ipynb](main/EAMMI_2_final.ipynb), which includes docstrings and comments/explanations.<br>
 *Note: The Subjective Well-being section, as well as demographics, have been held out so that the resulting clusters can be examined with regard to these attributes.*
 
-### Use [Non-negative Matrix Factorization](https://mlexplained.com/2017/12/28/a-practical-introduction-to-nmf-nonnegative-matrix-factorization/) for topic extraction.
-I found that reducing the features (survey questions) to seven topics maintained interpretability. Below are the seven topics (the labels are my interpretation) along with a few survey questions associated with each topic. A more comprehensive list of questions can be found in the [notebook](EAMMI_2_final.ipynb).
+### Using [Non-negative Matrix Factorization](https://mlexplained.com/2017/12/28/a-practical-introduction-to-nmf-nonnegative-matrix-factorization/) for topic extraction.
+I found that reducing the features (survey questions) down to seven topics maintained interpretability. Below are the seven topics (the labels are my interpretation) along with a few survey questions associated with each topic. A more comprehensive list of questions can be found in the [notebook](main/EAMMI_2_final.ipynb).
 
 1. Self-worth / Confidence
     1. I can solve most problems if I invest the necessary effort.
@@ -120,15 +120,16 @@ I found that reducing the features (survey questions) to seven topics maintained
     2. I feel that I am unable to control the important things in my life.
     3. Is this period of your life a time of feeling stressed out?
 
-### Use [Hierarchical Clustering](https://youtu.be/vg1w5ZUF5lA?t=453) on reduced feature set
+### Using [Hierarchical Clustering](https://youtu.be/vg1w5ZUF5lA?t=453) on reduced feature set
 Using Ward's linkage method to minimize within-cluster variance
 
 <p align="center">
   <img src="images/dendo_7_topics.png"/>
 </p>
 
-### Use [Chi-squared test](https://stattrek.com/chi-square-test/independence.aspx) to test independence of the clusters with regard to the held out "Subjective Well-being" questions.
-The young adults were binned by their cumulative SWB scores (low, neutral, high), and the distribution of each cluster was tested against that of every other cluster. The p-value is the probability of observing these distributions (or more extreme) given that the clusters are not independent. Therefore, the lower p-values support the claim of independence.
+### Using [Chi-squared test](https://stattrek.com/chi-square-test/independence.aspx) to test independence of the clusters with regard to the held out "Subjective Well-being" questions.
+The young adults were binned by their cumulative SWB scores (low, neutral, high), and the distribution of each cluster was tested against that of every other cluster. The p-value, shown in the yellow triangle, is the probability of observing these (or more extreme) distributions given that the clusters are not independent.<br> 
+Therefore, the lower p-values support the claim of independence.
 
 <p align="center">
   <img src="images/chi2_pvals.png" width="70%"/>
